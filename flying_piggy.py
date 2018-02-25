@@ -7,6 +7,7 @@ from rock_stats import RockStats
 # from score_board import ScoreBoard
 import game_functions as gf
 from game_stats import GameStats
+from time import clock
 
 def run_game():
 	# initialize game and create a screen object.
@@ -43,12 +44,12 @@ def run_game():
 	
 	# The main loop of the game
 	while True:
-		gf.check_events(piggy, ai_settings, stats)
+		gf.check_events(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats)
 		if stats.game_active:
 			piggy.update()
 			gf.fire_bullet(ai_settings, screen, piggy, bullets)
 			gf.update_bullets(rocks, bullets)
-			gf.update_rocks(screen, ai_settings, rock_stats, rocks)
+			gf.update_rocks(screen, ai_settings, rock_stats, rocks, piggy, stats)
 			# gf.update_aliens(stats, aliens, bullets, ship, screen, ai_settings, score_board, rewards, missiles, shields)
 			# gf.update_rewards(ship, rewards, ai_settings, stats, score_board, shields, screen)
 			# gf.update_missiles(stats, aliens, bullets, ship, screen, ai_settings, score_board, rewards, missiles, shields)
