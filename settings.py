@@ -41,7 +41,7 @@ class Settings():
 
 	def reset_reward_settings(self):
 		# how many projectiles shot out with one spacebar press
-		self.projectile_number = 5
+		self.projectile_number = 1
 		# how many shields the ship has currently
 		self.shield_number = 0
 		# piggy's speed increases when getting the corresponding rewards

@@ -13,6 +13,9 @@ class Rock(Sprite):
 		self.k = slope
 		self.rock_direction = 1
 
+		# record how many times a rock has been damaged
+		self.damage = 0
+
 		#load the rock image depending on which rock_flag is given
 		if self.rock_flag == "S":
 			self.image = pygame.image.load('images/small_rock.bmp')

@@ -47,7 +47,7 @@ def run_game():
 		if stats.game_active:
 			piggy.update()
 			gf.fire_bullet(ai_settings, screen, piggy, bullets)
-			gf.update_bullets(bullets)
+			gf.update_bullets(rocks, bullets)
 			gf.update_rocks(screen, ai_settings, rock_stats, rocks)
 			# gf.update_aliens(stats, aliens, bullets, ship, screen, ai_settings, score_board, rewards, missiles, shields)
 			# gf.update_rewards(ship, rewards, ai_settings, stats, score_board, shields, screen)
