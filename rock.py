@@ -3,7 +3,7 @@ from pygame.sprite import Sprite
 from random import randint
 
 class Rock(Sprite):
-	def __init__(self, screen, ai_settings, rock_flag, slope):
+	def __init__(self, screen, ai_settings, rock_flag, slope, reward_flag):
 		super().__init__()
 		'''initialize alien and determine its original position on screen'''
 		self.screen = screen
@@ -15,6 +15,9 @@ class Rock(Sprite):
 
 		# record how many times a rock has been damaged
 		self.damage = 0
+
+		# determine which reward to give once the rock is eliminated
+		self.reward_flag = reward_flag
 
 		#load the rock image depending on which rock_flag is given
 		if self.rock_flag == "S":

@@ -25,8 +25,8 @@ class Settings():
 		self.medium_rock_speed = 3
 		self.big_rock_speed = 2
 
-		# max number of shield one can have
-		self.max_shield = 3
+		# piggy's speed
+		self.piggy_speed = 5
 		
 		# scale for rock hp, points, and number when progression in rounds
 		self.rock_scale = 1.5
@@ -44,8 +44,9 @@ class Settings():
 		self.projectile_number = 1
 		# how many shields the ship has currently
 		self.shield_number = 0
-		# piggy's speed increases when getting the corresponding rewards
-		self.piggy_speed = 4
+		# how much damage bullet can do 
+		self.bullet_power = 1
+		
 
 	def initialize_dynamic_settings(self):
 		''' the following settings change throughout the game'''
@@ -54,9 +55,9 @@ class Settings():
 		self.medium_rock_points = 40
 		self.big_rock_points = 80
 		# hp of each type of rock
-		self.small_rock_hp = 20
-		self.medium_rock_hp = 50
-		self.big_rock_hp = 100
+		self.small_rock_hp = 1
+		self.medium_rock_hp = 1
+		self.big_rock_hp = 1
 		# maximum number of rocks allowed on the screen at the same time
 		self.number_of_rocks = 10
 		

@@ -30,8 +30,8 @@ def run_game():
 	rocks = Group()
 	rock_stats = RockStats()
 	
-	# rewards = Group()
-	# shields = Group()
+	rewards = Group()
+	shields = Group()
 
 	# create a play button
 	msg1 = 'Round ' + str(stats.level)
@@ -48,12 +48,12 @@ def run_game():
 		if stats.game_active:
 			piggy.update()
 			gf.fire_bullet(ai_settings, screen, piggy, bullets)
-			gf.update_bullets(rocks, bullets)
+			gf.update_bullets(screen, ai_settings, rocks, bullets, rewards)
 			gf.update_rocks(screen, ai_settings, rock_stats, rocks, piggy, stats)
 			# gf.update_aliens(stats, aliens, bullets, ship, screen, ai_settings, score_board, rewards, missiles, shields)
-			# gf.update_rewards(ship, rewards, ai_settings, stats, score_board, shields, screen)
+			gf.update_rewards(shields, screen, ai_settings, piggy, rewards)
 			# gf.update_missiles(stats, aliens, bullets, ship, screen, ai_settings, score_board, rewards, missiles, shields)
-			# gf.update_shields(shields, missiles, ai_settings, aliens)
-		gf.update_screen(ai_settings, screen, piggy, bullets, stats, play_button, rocks)
+			gf.update_shields(shields, ai_settings, rocks)
+		gf.update_screen(ai_settings, screen, piggy, bullets, stats, play_button, rocks, rewards, shields)
 		
 run_game()
