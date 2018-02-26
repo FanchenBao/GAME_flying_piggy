@@ -44,7 +44,7 @@ def run_game():
 	
 	# The main loop of the game
 	while True:
-		gf.check_events(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats)
+		gf.check_events(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats, shields, rewards)
 		if stats.game_active:
 			piggy.update()
 			gf.fire_bullet(ai_settings, screen, piggy, bullets)

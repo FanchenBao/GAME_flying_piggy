@@ -245,7 +245,7 @@ def alien_hit_bottom(aliens):
 
 
 
-def check_key_down_event(event, stats, piggy, rocks, bullets, screen, ai_settings, rock_stats):
+def check_key_down_event(event, stats, piggy, rocks, bullets, screen, ai_settings, rock_stats, shields, rewards):
 	# determine action when key is pushed down
 	if event.key == pygame.K_RIGHT:
 		# set the moving flag to true so that ship continues moving right
@@ -272,7 +272,7 @@ def check_key_down_event(event, stats, piggy, rocks, bullets, screen, ai_setting
 	elif event.key == pygame.K_p:
 		if not stats.game_active:
 	# 		# restart or start a new game
-			game_restart(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats)
+			game_restart(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats, shields, rewards)
 	# 		# hide the mouse cursor
 	# 		pygame.mouse.set_visible(False)
 
@@ -294,7 +294,7 @@ def check_key_up_event(event, piggy, ai_settings):
 		# stop firing bullets when spacebar is lifted
 		ai_settings.open_fire = False
 
-def check_events(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats):
+def check_events(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats, shields, rewards):
 	# an event loop to monitor user's input (press key or move mouse)
 	# The one below checks whether user clicks to close the program.
 	for event in pygame.event.get():
@@ -304,7 +304,7 @@ def check_events(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats):
 			sys.exit()
 		# check whether the event is a key press
 		elif event.type == pygame.KEYDOWN:
-			check_key_down_event(event, stats, piggy, rocks, bullets, screen, ai_settings, rock_stats)
+			check_key_down_event(event, stats, piggy, rocks, bullets, screen, ai_settings, rock_stats, shields, rewards)
 		elif event.type == pygame.KEYUP:
 			check_key_up_event(event, piggy, ai_settings)
 
@@ -331,7 +331,7 @@ def check_play_button(play_button, stats, mouse_x, mouse_y, aliens, bullets, scr
 			# hide the mouse cursor
 			pygame.mouse.set_visible(False)
 
-def game_restart(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats):
+def game_restart(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats, shields, rewards):
 	# restart the game by resetting stats and clearing out remnants of previous game
 	stats.game_active = True
 	
@@ -347,6 +347,7 @@ def game_restart(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats):
 	rocks.empty()
 	bullets.empty()
 	shields.empty()
+	rewards.empty()
 
 	# create new rocks
 	create_initial_rocks(screen, ai_settings, rock_stats, rocks)
