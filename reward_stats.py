@@ -11,24 +11,24 @@ class RewardStats():
 		
 		if self.rock_flag == "S":
 			# probability of reward M, P, S, and no reward appearing in a small rock
-			self.prob_m = 10
-			self.prob_p = 5
-			self.prob_s = 2
-			self.prob_none = 83
+			self.prob_m = 0
+			self.prob_p = 0
+			self.prob_s = 0
+			self.prob_none = 100
 
 		if self.rock_flag == "M":
 			# probability of reward M, P, S, and no reward appearing in a medium rock
-			self.prob_m = 5
-			self.prob_p = 15
-			self.prob_s = 5
-			self.prob_none = 75
+			self.prob_m = 2
+			self.prob_p = 2
+			self.prob_s = 1
+			self.prob_none = 95
 
 		if self.rock_flag == "B":
 			# probability of reward M, P, S, and no reward appearing in a big rock
-			self.prob_m = 5
-			self.prob_p = 15
-			self.prob_s = 15
-			self.prob_none = 65
+			self.prob_m = 20
+			self.prob_p = 20
+			self.prob_s = 10
+			self.prob_none = 50
 
 	def assign_reward(self):
 		list_m = list(range(1, self.prob_m + 1))

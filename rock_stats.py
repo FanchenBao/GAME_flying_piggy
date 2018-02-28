@@ -7,9 +7,9 @@ class RockStats():
 		B is big rock '''
 	def __init__(self):
 		# small rocks appear 60% of the time
-		self.prob_s = 70
+		self.prob_s = 75
 		# medium rocks appear 30% of the time
-		self.prob_m = 25
+		self.prob_m = 20
 		# big rocks appear 10% of the time
 		self.prob_b = 5
 

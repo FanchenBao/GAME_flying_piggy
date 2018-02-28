@@ -20,20 +20,18 @@ class Settings():
 		# flag to determine whether bullet firing is on
 		self.open_fire = False
 
-		# rock settings
-		self.small_rock_speed = 4
-		self.medium_rock_speed = 3
-		self.big_rock_speed = 2
+		# rock speed
+		self.small_rock_speed = 5
+		self.medium_rock_speed = 4
+		self.big_rock_speed = 3
 
-		# piggy's speed
-		self.piggy_speed = 5
+		# maximum number of rocks allowed on the screen at the same time
+		self.number_of_rocks = 10
 		
 		# scale for rock hp, points, and number when progression in rounds
-		self.rock_scale = 1.5
+		self.rock_scale = 1.2
 
-		# reward settings
-		self.reward_speed = 2
-
+		# reset dynamic settings
 		self.initialize_dynamic_settings()
 
 		# reset settings related to rewards
@@ -55,9 +53,14 @@ class Settings():
 		self.medium_rock_points = 40
 		self.big_rock_points = 80
 		# hp of each type of rock
-		self.small_rock_hp = 1
-		self.medium_rock_hp = 1
-		self.big_rock_hp = 1
-		# maximum number of rocks allowed on the screen at the same time
-		self.number_of_rocks = 10
+		self.small_rock_hp = 10
+		self.medium_rock_hp = 20
+		self.big_rock_hp = 50
+
+		# piggy's speed
+		self.piggy_speed = 5
+
+		# target score to clear each round
+		self.target_score = 1000
+
 		

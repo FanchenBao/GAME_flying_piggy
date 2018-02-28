@@ -24,18 +24,21 @@ class Rock(Sprite):
 			self.image = pygame.image.load('images/small_rock.bmp')
 			self.hp = ai_settings.small_rock_hp
 			self.speed = float(ai_settings.small_rock_speed)
+			self.points = ai_settings.small_rock_points
 
 		if self.rock_flag == "M":
 			#load the projectile number increase image and get its rect
 			self.image = pygame.image.load('images/medium_rock.bmp')
 			self.hp = ai_settings.medium_rock_hp
 			self.speed = float(ai_settings.medium_rock_speed)
+			self.points = ai_settings.medium_rock_points
 
 		if self.rock_flag == "B":
 			#load the unlimited bullets image and get its rect
 			self.image = pygame.image.load('images/big_rock.bmp')
 			self.hp = ai_settings.big_rock_hp
 			self.speed = float(ai_settings.big_rock_speed)
+			self.points = ai_settings.big_rock_points
 
 
 		#get rock rect
