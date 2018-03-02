@@ -20,7 +20,8 @@ class ScoreBoard():
 		self.prep_score()
 		self.prep_target_score()
 		self.prep_round()
-		self.prep_status()
+		self.prep_power_up()
+		self.prep_shield()
 		self.prep_high_round()
 
 	def prep_score(self):
@@ -55,8 +56,21 @@ class ScoreBoard():
 		self.round_image_rect.left = 10
 		self.round_image_rect.top = 10
 
-	def prep_status(self):
-		pass
+	def prep_power_up(self):
+		power_up_str = "Bullet Power: " + str(self.ai_settings.bullet_power)
+		self.power_up_image = self.font.render(power_up_str, True, self.text_color, 
+			self.ai_settings.background_color)
+		self.power_up_image_rect = self.power_up_image.get_rect()
+		self.power_up_image_rect.right = self.screen_rect.right - 10
+		self.power_up_image_rect.top = 10
+
+	def prep_shield(self):
+		shield_str = "Shield x " + str(self.ai_settings.shield_number)
+		self.shield_image = self.font.render(shield_str, True, self.text_color, 
+			self.ai_settings.background_color)
+		self.shield_image_rect = self.shield_image.get_rect()
+		self.shield_image_rect.right = self.screen_rect.right - 10
+		self.shield_image_rect.top = 50
 
 	def prep_high_round(self):
 		''' convert round information into image'''
@@ -73,3 +87,5 @@ class ScoreBoard():
 		self.screen.blit(self.target_score_image, self.target_score_image_rect)
 		self.screen.blit(self.round_image, self.round_image_rect)
 		self.screen.blit(self.high_round_image, self.high_round_image_rect)
+		self.screen.blit(self.power_up_image, self.power_up_image_rect)
+		self.screen.blit(self.shield_image, self.shield_image_rect)

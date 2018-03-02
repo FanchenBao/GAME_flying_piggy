@@ -11,10 +11,10 @@ class RewardStats():
 		
 		if self.rock_flag == "S":
 			# probability of reward M, P, S, and no reward appearing in a small rock
-			self.prob_m = 0
-			self.prob_p = 0
+			self.prob_m = 1
+			self.prob_p = 1
 			self.prob_s = 0
-			self.prob_none = 100
+			self.prob_none = 98
 
 		if self.rock_flag == "M":
 			# probability of reward M, P, S, and no reward appearing in a medium rock

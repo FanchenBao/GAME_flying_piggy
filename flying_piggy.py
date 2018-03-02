@@ -34,10 +34,7 @@ def run_game():
 	rewards = Group()
 	shields = Group()
 
-	# create a play button
-	msg1 = 'Round ' + str(stats.round)
-	msg2 = 'Press "P" to Play'
-	play_button = Button(screen, ai_settings, msg1, msg2)
+	
 
 	score_board = ScoreBoard(screen, ai_settings, stats)
 	
@@ -51,9 +48,18 @@ def run_game():
 			gf.fire_bullet(ai_settings, screen, piggy, bullets)
 			gf.update_bullets(screen, ai_settings, rocks, bullets, rewards, stats, score_board)
 			gf.update_rocks(screen, ai_settings, rock_stats, rocks, piggy, stats, score_board)
-			gf.update_rewards(shields, screen, ai_settings, piggy, rewards)
+			gf.update_rewards(shields, screen, ai_settings, piggy, rewards, score_board)
 			gf.update_shields(shields, ai_settings, rocks)
 			gf.check_round(stats, score_board, ai_settings)
+		
+		# create a play button
+		if stats.piggy_hit:
+			msg1 = "Game Over"
+		else:
+			msg1 = 'Round ' + str(stats.round)
+		msg2 = 'Press "P" to Play'
+		play_button = Button(screen, ai_settings, msg1, msg2)
+
 		gf.update_screen(ai_settings, screen, piggy, bullets, stats, play_button, rocks, rewards, shields, score_board)
 		
 run_game()

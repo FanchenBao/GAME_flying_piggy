@@ -12,6 +12,7 @@ class GameStats():
 		# record game score
 		self.score = 0
 		self.round = 1
+		self.piggy_hit = False
 
 	def read_high_round(self, filename):
 		'''import all time high score'''

@@ -31,7 +31,7 @@ def update_rocks(screen, ai_settings, rock_stats, rocks, piggy, stats, score_boa
 
 	for rock in rocks.copy():
 		if rock.rect.left >= rock.screen_rect.right:
-			stats.score += rock.points
+			stats.score += rock.points / 2
 			score_board.prep_score()
 			rocks.remove(rock)
 
@@ -42,6 +42,7 @@ def piggy_hit(stats):
 	'''when piggy got hit by a rock, game over'''
 	# set game to inactive and prompt a player response
 	stats.game_active = False
+	stats.piggy_hit = True
 	pygame.mouse.set_visible(True)
 
 def check_rock_edges(rocks):
@@ -73,7 +74,7 @@ def create_reward(screen, ai_settings, rock, rewards):
 	reward.x = float(reward.rect.x)
 	rewards.add(reward)
 
-def update_rewards(shields, screen, ai_settings, piggy, rewards):
+def update_rewards(shields, screen, ai_settings, piggy, rewards, score_board):
 	# update reward position and delete reward when it hits piggy or disappears off the screen
 	rewards.update()
 
@@ -82,9 +83,9 @@ def update_rewards(shields, screen, ai_settings, piggy, rewards):
 		if reward.rect.left >= reward.screen_rect.right:
 			rewards.remove(reward)
 
-	check_reward_piggy_collision(shields, screen, ai_settings, piggy, rewards)
+	check_reward_piggy_collision(shields, screen, ai_settings, piggy, rewards, score_board)
 
-def check_reward_piggy_collision(shields, screen, ai_settings, piggy, rewards):
+def check_reward_piggy_collision(shields, screen, ai_settings, piggy, rewards, score_board):
 	# check whether a reward has hit the piggy
 	# record the reward
 	reward = pygame.sprite.spritecollideany(piggy, rewards)
@@ -93,6 +94,8 @@ def check_reward_piggy_collision(shields, screen, ai_settings, piggy, rewards):
 		check_defensive_reward(reward.reward_flag, shields, screen, ai_settings, piggy)
 		# remove the reward that has hit the ship
 		rewards.remove(reward)
+	score_board.prep_shield()
+	score_board.prep_power_up()
 
 def create_shield(shields, screen, ai_settings, piggy):
 	# create shield based on how many S reward player has collected
@@ -215,32 +218,35 @@ def game_restart(stats, piggy, rocks, bullets, screen, ai_settings, rock_stats, 
 	# restart the game by resetting stats and clearing out remnants of previous game
 	stats.game_active = True
 	
-	# reset all the stats
-	stats.reset_stats()
-	ai_settings.reset_reward_settings()
-	ai_settings.initialize_dynamic_settings()
+	if stats.piggy_hit:
+		# reset all the stats
+		stats.reset_stats()
+		ai_settings.reset_reward_settings()
+		ai_settings.initialize_dynamic_settings()
 
-	# reset all the scoreboard images
-	prep_scoreboard_images(score_board)
+		# reset all the scoreboard images
+		prep_scoreboard_images(score_board)
 
-	# empty out any remaining rocks, bullets, shields
-	rocks.empty()
-	bullets.empty()
-	shields.empty()
-	rewards.empty()
+		# empty out any remaining rocks, bullets, shields
+		rocks.empty()
+		bullets.empty()
+		shields.empty()
+		rewards.empty()
 
-	# create new rocks
-	create_initial_rocks(screen, ai_settings, rock_stats, rocks)
-	
-	#reposition piggy to right center position
-	piggy.center_x = piggy.screen_rect.right - piggy.rect.width / 2
-	piggy.center_y = piggy.screen_rect.centery
+		# create new rocks
+		create_initial_rocks(screen, ai_settings, rock_stats, rocks)
+		
+		#reposition piggy to right center position
+		piggy.center_x = piggy.screen_rect.right - piggy.rect.width / 2
+		piggy.center_y = piggy.screen_rect.centery
 
 def prep_scoreboard_images(score_board):
 	score_board.prep_score()
 	score_board.prep_target_score()
 	score_board.prep_round()
 	score_board.prep_high_round()
+	score_board.prep_power_up()
+	score_board.prep_shield()
 	
 def update_screen(ai_settings, screen, piggy, bullets, stats, play_button, rocks, rewards, shields, score_board):
 	# redraw the scren during each pass of the loop
@@ -325,6 +331,7 @@ def check_round(stats, score_board, ai_settings):
 		score_board.prep_round()
 		level_up(ai_settings)
 		score_board.prep_target_score()
+		stats.game_active = False
 
 
 	if stats.round > stats.high_round:
@@ -343,5 +350,5 @@ def level_up(ai_settings):
 
 	ai_settings.piggy_speed *= ai_settings.rock_scale
 
-	ai_settings.target_score *= ai_settings.rock_scale
+	ai_settings.target_score *= ai_settings.target_score_scale
 

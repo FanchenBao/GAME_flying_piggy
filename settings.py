@@ -29,7 +29,10 @@ class Settings():
 		self.number_of_rocks = 10
 		
 		# scale for rock hp, points, and number when progression in rounds
-		self.rock_scale = 1.2
+		self.rock_scale = 1.5
+
+		# the power to which the target score will increase by
+		self.target_score_scale = 1.6
 
 		# reset dynamic settings
 		self.initialize_dynamic_settings()
