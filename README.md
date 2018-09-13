@@ -5,6 +5,7 @@ _A major project inspired by Chapter 12 of "Python Crash Course"._
 
 Game Overview:
 
+* flying_piggy.py is the driver file.
 * Player controls a flying piggy (up, down, left, and right arrow key), trying to avoid all the square rocks for as long as possible.
 * Flying piggy can shoot bullets (spacebar) to destroy rocks. The bigger the rock, the more likelihood there is a reward upon destroying the rock (probability of each type of rock carrying rewards can be found in reward_stats). The three types of rocks appear with different probability, and they also carry different HP.
 * There are three rewards: 
