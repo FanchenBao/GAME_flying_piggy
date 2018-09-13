@@ -1,3 +1,12 @@
+'''
+Author: Fanchen Bao
+Date: 02/17/2018
+
+Description:
+RockStats class, default settings of the probability of each rock's appearance, and determine the next rock appearance based on the probability.
+'''
+
+
 from random import randint
 
 class RockStats():
@@ -6,11 +15,11 @@ class RockStats():
 		M is medium rock
 		B is big rock '''
 	def __init__(self):
-		# small rocks appear 60% of the time
+		# small rocks appear 75% of the time
 		self.prob_s = 75
-		# medium rocks appear 30% of the time
+		# medium rocks appear 20% of the time
 		self.prob_m = 20
-		# big rocks appear 10% of the time
+		# big rocks appear 5% of the time
 		self.prob_b = 5
 
 	def assign_rock(self):

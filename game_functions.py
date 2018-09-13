@@ -1,3 +1,11 @@
+'''
+Author: Fanchen Bao
+Date: 02/18/2018
+
+Description:
+Main module for game functions.
+'''
+
 import sys
 import pygame
 from bullet import Bullet

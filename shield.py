@@ -1,3 +1,11 @@
+'''
+Author: Fanchen Bao
+Date: 02/20/2018
+
+Description:
+Shield class
+'''
+
 import pygame
 from pygame.sprite import Sprite
 

@@ -1,3 +1,11 @@
+'''
+Author: Fanchen Bao
+Date: 1/28/2018
+
+Description:
+Piggy class
+'''
+
 import pygame
 from pygame.sprite import Sprite
 

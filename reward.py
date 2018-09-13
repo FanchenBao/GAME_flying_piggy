@@ -1,3 +1,12 @@
+'''
+Author: Fanchen Bao
+Date: 02/17/2018
+
+Description:
+Reward class
+'''
+
+
 import pygame
 from pygame.sprite import Sprite
 

@@ -1,3 +1,12 @@
+'''
+Author: Fanchen Bao
+Date: 02/17/2018
+
+Description:
+RewardStats class, determining the probability of the occurrence of each reward.
+'''
+
+
 from random import randint
 
 class RewardStats():

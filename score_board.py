@@ -1,3 +1,12 @@
+'''
+Author: Fanchen Bao
+Date: 02/15/2018
+
+Description:
+ScoreBoard class, update in-game information, such as score, number of rounds, piggy status, etc.
+'''
+
+
 import pygame.font
 from pygame.sprite import Group
 

@@ -1,3 +1,12 @@
+'''
+Author: Fanchen Bao
+Date: 02/18/2018
+
+Description:
+Settings class, default settings
+'''
+
+
 class Settings():
 	''' to store all settings for alien_invasion'''
 	def __init__(self):
@@ -5,13 +14,13 @@ class Settings():
 		self.screen_height = 500
 		self.screen_width = 1200
 		# background needs to be sky blue
-		self.background_color = (50, 100, 200)
+		self.background_color = (135, 206, 235)
 
 		# bullet settings
 		self.bullet_width = 15
 		self.bullet_height = 3
 		# bullet is pink
-		self.bullet_color = (200, 100, 50)
+		self.bullet_color = (255, 105, 180)
 		self.bullet_speed = 10
 		# maximum projectiles allowed per shot
 		self.max_projectile = 5

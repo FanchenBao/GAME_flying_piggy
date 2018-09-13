@@ -1,3 +1,15 @@
+'''
+Author: Fanchen Bao
+Date: 02/18/2018
+
+Description:
+Driver file
+Player controls a flying piggy to navigate across a field of big, medium, and small rocks. 
+Piggy can shoot bullets to obliviate the rock, and there is a chance of rewards by doing so.
+Once a score is reached, the game will level up. There is no end to this game. Stay in game for as long as possible.
+'''
+
+
 import pygame
 from pygame.sprite import Group
 from settings import Settings
